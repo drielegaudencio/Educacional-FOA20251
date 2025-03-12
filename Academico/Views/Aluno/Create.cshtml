@@ -58,7 +58,7 @@
 									<input asp-for="Cep" class="form-control" />
 									<span asp-validation-for="Cep" class="text-danger"></span>
 								</div>
-
+								<input type="hidden" asp-for="AlunoID" />
 								<div class="form-group">
 									<input type="submit" value="Gravar" class="btn btn-success" />
 									<a asp-action="Index" class="btn btn-primary">Retornar a Lista de Alunos</a>"

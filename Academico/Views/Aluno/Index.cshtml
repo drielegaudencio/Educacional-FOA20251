@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<Academico.Models.Aluno> //listagem que vai percorrer, ele cria uma listagem em memória
 
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
 @{
     ViewData["Title"] = "Lista de Alunos";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Adicionar um aluno</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
