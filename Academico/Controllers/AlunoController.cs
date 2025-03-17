@@ -32,7 +32,7 @@ namespace Academico.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken] //EVITA QUE VENHA DADOS DE OUTROS LUGARES QUE NAAO SEJAM DA PÁGINA OFICIAL, pois ele verifica se veio da página correta
 
-        public IActionResult Create([Bind("Nome","Email","Telefone","Endereço","Complemento","Bairro","Municipio","Uf","Cep")]Aluno aluno)
+        public IActionResult Create([Bind("Nome","Email","Telefone","Endereco","Complemento","Bairro","Municipio","Uf","Cep")]Aluno aluno)
         {
             try
             {
@@ -66,6 +66,51 @@ namespace Academico.Controllers
             alunos.Remove(alunos.Where(i => i.AlunoID == aluno.AlunoID).First());
             alunos.Add(aluno);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details (int id)
+        {
+            var aluno = alunos.FirstOrDefault(a => a.AlunoID == id);
+            if(aluno == null)
+            {
+                return NotFound();
+            }
+            return View(aluno);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            {
+                var aluno = alunos.FirstOrDefault(a => a.AlunoID==id);
+                if(aluno == null)
+                {
+                    return NotFound();
+                }
+
+                return View(aluno);
+            }
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                var aluno = alunos.FirstOrDefault(a => a.AlunoID == id);
+                if(aluno== null)
+                {
+                    return NotFound();
+                }
+                alunos.Remove(aluno);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex) 
+            {
+                ModelState.AddModelError("", $"Não foi possível excluir o aluno: {ex.Message}");
+            }
+            return View(alunos);
         }
         public IActionResult Index()
         {

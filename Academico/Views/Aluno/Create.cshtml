@@ -2,7 +2,7 @@
 @{
 	ViewData["Title"] = "Aluno";
 }
-<div>Registro de Alunos</div>
+<div style="background-color:blue; color:azure; font-size:large; text-align:center">Registro de Alunos</div>
 <div class="panel panel-default">
 	<div class="panel-body">
 		<form asp-action="Create">
@@ -20,7 +20,7 @@
 						</div>
 						<div class="form-group">
 							<label asp-for="Telefone" class="control-label"></label>
-							<input asp-for="Telefone" class="form-control" />
+							<input asp-for="Telefone" class="form-control" placeholder="(00) 000000000"/>
 							<span asp-validation-for="Telefone" class="text-danger"></span>
 						</div>
 						<div class="form-group">
@@ -55,7 +55,7 @@
 								</div>
 								<div class="form-group">
 									<label asp-for="Cep" class="control-label"></label>
-									<input asp-for="Cep" class="form-control" />
+									<input asp-for="Cep" class="form-control" placeholder="0000-000" />
 									<span asp-validation-for="Cep" class="text-danger"></span>
 								</div>
 								<input type="hidden" asp-for="AlunoID" />

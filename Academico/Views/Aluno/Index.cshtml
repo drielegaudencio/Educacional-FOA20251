@@ -3,16 +3,16 @@
 <p>
     <a asp-action="Create">Criar Novo</a>
 </p>
-@{
-    ViewData["Title"] = "Lista de Alunos";
+@{ 
+    ViewData["Title"] = "Listagem de Alunos";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="background-color:darkblue; text-align:center; color:azure;">@ViewData["Title"]</h1>
 
 
 <table class="table">
     <thead>
-        <tr>
+        <tr >
             
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
@@ -23,7 +23,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Telefone)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Endereco)
             </th>
             <th>
@@ -40,13 +40,13 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cep)
-            </th>
+            </th> *@
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr style="background-color:darkgrey">
             
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
@@ -57,7 +57,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Telefone)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.Endereco)
             </td>
             <td>
@@ -74,7 +74,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cep)
-            </td>
+            </td> *@
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id=item.AlunoID}) |
                 @Html.ActionLink("Detalhes", "Details", new { id=item.AlunoID}) |

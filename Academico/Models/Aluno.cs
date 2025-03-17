@@ -16,7 +16,7 @@ namespace Academico.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Telefone é obrigatório.")]
-        [MaxLength(11, ErrorMessage = "Telefone deve conter apenas 11 dígitos.")]
+        [MaxLength(14, ErrorMessage = "Telefone deve conter apenas 11 dígitos ( (00) 000000000).")]
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Endereço é obrigatório.")]
@@ -37,7 +37,7 @@ namespace Academico.Models
         public string Uf { get; set; }
 
         [Required(ErrorMessage = "CEP é obrigatório.")]
-        [MaxLength(8, ErrorMessage = "CEP deve conter apenas 8 dígitos.")]
+        [MaxLength(9, ErrorMessage = "CEP deve conter apenas 8 dígitos (00000-000).")]
         [Display(Name = "CEP")]
         public string Cep { get; set; }
     }
