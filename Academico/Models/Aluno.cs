@@ -23,7 +23,7 @@ namespace Academico.Models
         [Display(Name = "Endereço")]
         public string Endereco { get; set; }
         
-        public string Complemento { get; set; }
+        public string ?Complemento  { get; set; }
 
         [Required(ErrorMessage = "Bairro é obrigatório.")]
         public string Bairro { get; set; }
